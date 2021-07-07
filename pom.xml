@@ -32,10 +32,45 @@
     </dependencies>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/springframeworkguru/mb2g-release-plugin.git</developerConnection>
-        <url>https://github.com/springframeworkguru/mb2g-release-plugin</url>
+        <url>https://github.com/AlexAndradeRL/mb2g-release-plugin</url>
+        <developerConnection>scm:git:https://github.com/AlexAndradeRL/mb2g-release-plugin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+
+
+
+    <repositories>
+        <repository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/nexus/repository/nexus-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/nexus/repository/nexus-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/nexus/repository/nexus-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/nexus/repository/nexus-releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+
 
     <build>
         <extensions>
@@ -57,21 +92,12 @@
                 <version>2.5.3</version>
                 <configuration>
 
-                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+<!--                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>-->
 
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>packagecloud.release</id>
-            <url>packagecloud+https://packagecloud.io/springframeworkguru/release</url>
-        </repository>
-        <snapshotRepository>
-            <id>packagecloud.snapshot</id>
-            <url>packagecloud+https://packagecloud.io/springframeworkguru/snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
+
 </project>
